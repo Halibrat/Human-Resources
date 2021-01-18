@@ -1,0 +1,420 @@
+﻿@using HumanResourcesSystem.Entities.Concrete
+@model IEnumerable<HumanResourcesSystem.Entities.Concrete.Payroll>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+
+    <title>Bordro Hesap</title>
+
+
+    <link href="~/Files/Payroll/style.css" rel="stylesheet" />
+    @*<script src="~/Files/Payroll/vendor/jquery/jquery.js"></script>*@
+    <link href="~/Files/Payroll/bootstrap-reboot.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    @*<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>*@
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+<body>
+    <input type="checkbox" id="check">
+    <label for="check">
+        <i class="fas fa-bars" id="btn"></i>
+        <i class="fas fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+        <header>X-HRS</header>
+        <ul>
+            <li><a href="/Payroll/Index"><i class="fa fa-users" aria-hidden="true"></i>Bordro</a></li>
+            <li><a href="/Payroll/Add"><i class="fa fa-plus" aria-hidden="true"></i>Ekle</a></li>
+            <li><a href="/Payroll/GetAll"><i class="fa fa-list-ol" aria-hidden="true"></i>Listele</a></li>
+            <li><a href="/Payroll/Search"><i class="fa fa-search" aria-hidden="true"></i>Ara</a></li>
+            <li><a href="/Payroll/Delete"><i class="fa fa-trash" aria-hidden="true"></i>Sil</a></li>
+        </ul>
+    </div>
+
+    <div class="container text-center">
+        <h1 class="order py-4 ">
+            <i class="far fa-handshake"></i> Payroll
+           
+         
+        </h1>
+        <div class="d-flex table-data">
+            @using (Html.BeginForm("Add", "Payroll", FormMethod.Post))
+            {
+
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">MAAŞ:</th>
+                            <td><input type="text" id="text" /></td>
+                            <th scope="col">SSK İşçi</th>
+                            <th scope="col">İşsizlik İşçi Sig</th>
+                            <th scope="col">Gelir Vergi Mat.</th>
+                            <th scope="col">Gelir Vergisi</th>
+                            <th scope="col">Damga Vergisi</th>
+                            <th scope="col">Kesintiler Toplamı</th>
+                            <th scope="col">Net Ücret</th>
+                            <th scope="col">SGK işveren Payı</th>
+                            <th scope="col">İşsizlik Sig. İşveren Payı</th>
+                        </tr>
+                    </thead>
+
+
+
+
+
+
+
+
+
+                    <tbody>
+                        <tr>
+
+                            <td></td>
+                            <th scope="row">OCAK</th>
+                            <td><asp:TextBox ID="ocak1" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="ocak2" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="ocak3" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="ocak4" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="ocak5" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="ocak6" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="ocak7" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="ocak8" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="ocak9" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <th scope="row">ŞUBAT</th>
+                            <td><asp:TextBox ID="subat1" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="subat2" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="subat3" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="subat4" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="subat5" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="subat6" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="subat7" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="subat8" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="subat9" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <th scope="row">MART</th>
+                            <td><asp:TextBox ID="mart1" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="mart2" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="mart3" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="mart4" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="mart5" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="mart6" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="mart7" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="mart8" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="mart9" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <th scope="row">NİSAN</th>
+                            <td><asp:TextBox ID="nisan1" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="nisan2" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="nisan3" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="nisan4" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="nisan5" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="nisan6" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="nisan7" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="nisan8" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="nisan9" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <th scope="row">MAYIS</th>
+                            <td><asp:TextBox ID="mayıs1" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="mayıs2" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="mayıs3" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="mayıs4" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="mayıs5" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="mayıs6" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="mayıs7" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="mayıs8" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="mayıs9" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <th scope="row">HAZİRAN</th>
+                            <td><asp:TextBox ID="haziran1" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="haziran2" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="haziran3" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="haziran4" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="haziran5" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="haziran6" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="haziran7" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="haziran8" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="haziran9" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <th scope="row">TEMMUZ</th>
+                            <td><asp:TextBox ID="temmuz1" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="temmuz2" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="temmuz3" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="temmuz4" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="temmuz5" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="temmuz6" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="temmuz7" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="temmuz8" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="temmuz9" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <th scope="row">AĞUSTOS</th>
+                            <td><asp:TextBox ID="agustos1" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="agustos2" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="agustos3" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="agustos4" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="agustos5" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="aggustos6" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="agustos7" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="agustos8" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="agustos9" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <th scope="row">EYLÜL</th>
+                            <td><asp:TextBox ID="eylül1" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="eylül2" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="eylül3" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="eylül4" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="eylül5" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="eylül6" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="eylül7" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="eylül8" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="eylül9" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <th scope="row">EKİM</th>
+                            <td><asp:TextBox ID="ekim1" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="ekim2" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="ekim3" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="ekim4" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="ekim5" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="ekim6" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="ekim7" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="ekim8" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="ekim9" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <th scope="row">KASIM</th>
+                            <td><asp:TextBox ID="kasım1" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="kasım2" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="kasım3" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="kasım4" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="kasım5" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="kasım6" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="kasım7" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="kasım8" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="kasım9" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <th scope="row">ARALIK</th>
+                            <td><asp:TextBox ID="aralık1" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="aralık2" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="aralık3" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="aralık4" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="aralık5" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="aralık6" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="aralık7" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="aralık8" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                            <td><asp:TextBox ID="aralık9" runat="server" ClientIDMode="Static" Width="206px"></asp:TextBox></td>
+                        </tr>
+
+
+
+                    </tbody>
+
+
+
+                </table>
+                <input type="button" class="btn btn-primary" id="bas" value="Hesapla" style="border-bottom-width:medium" />
+
+               
+
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+                <script type="text/javascript">
+
+                    var net;
+
+                    $("#bas").click(function () {
+
+                        brut = $('#text').val();
+                        var laborShare = (brut * 0.14);
+                        var uIShare = (brut * 0.01);
+                        var inTaxBase = (brut -[ laborShare + uIShare]);
+                        var inTaxAmount = (inTaxBase *( 0.15));
+                        var stumpDutyAmount = (inTaxAmount * (0.00759));
+                        var sumOfDeductions = ((laborShare) +( uIShare )+ (inTaxAmount) + (stumpDutyAmount));
+                        var netWage = (brut - (sumOfDeductions));
+                        var employerShare = (brut * 0.155);
+                        var uIEShare = (brut * 0.2);
+
+                        $('#ocak1').text((laborShare).toString())
+                        $('#ocak2').text((uIShare).toString())
+                        $('#ocak3').text((inTaxBase).toString())
+                        $('#ocak4').text((inTaxAmount).toString())
+                        $('#ocak5').text((stumpDutyAmount).toString())
+                        $('#ocak6').text(sumOfDeductions).toString()
+                        $('#ocak7').text((netWage).toString())
+                        $('#ocak8').text((employerShare).toString())
+                        $('#ocak9').text((uIEShare).toString())
+
+                        $('#subat1').text((laborShare).toString())
+                        $('#subat2').text((uIShare).toString())
+                        $('#subat3').text((inTaxBase).toString())
+                        $('#subat4').text((inTaxAmount).toString())
+                        $('#subat5').text((stumpDutyAmount).toString())
+                        $('#subat6').text(sumOfDeductions).toString()
+                        $('#subat7').text((netWage).toString())
+                        $('#subat8').text((employerShare).toString())
+                        $('#subat9').text((uIEShare).toString())
+
+                        $('#mart1').text((laborShare).toString())
+                        $('#mart2').text((uIShare).toString())
+                        $('#mart3').text((inTaxBase).toString())
+                        $('#mart4').text((inTaxAmount).toString())
+                        $('#mart5').text((stumpDutyAmount).toString())
+                        $('#mart6').text(sumOfDeductions).toString()
+                        $('#mart7').text((netWage).toString())
+                        $('#mart8').text((employerShare).toString())
+                        $('#mart9').text((uIEShare).toString())
+
+                        $('#nisan1').text((laborShare).toString())
+                        $('#nisan2').text((uIShare).toString())
+                        $('#nisan3').text((inTaxBase).toString())
+                        $('#nisan4').text((inTaxAmount).toString())
+                        $('#nisan5').text((stumpDutyAmount).toString())
+                        $('#nisan6').text(sumOfDeductions).toString()
+                        $('#nisan7').text((netWage).toString())
+                        $('#nisan8').text((employerShare).toString())
+                        $('#nisan9').text((uIEShare).toString())
+
+                        $('#mayıs1').text((laborShare).toString())
+                        $('#mayıs2').text((uIShare).toString())
+                        $('#mayıs3').text((inTaxBase).toString())
+                        $('#mayıs4').text((inTaxAmount).toString())
+                        $('#mayıs5').text((stumpDutyAmount).toString())
+                        $('#mayıs6').text(sumOfDeductions).toString()
+                        $('#mayıs7').text((netWage).toString())
+                        $('#mayıs8').text((employerShare).toString())
+                        $('#mayıs9').text((uIEShare).toString())
+
+                        $('#haziran1').text((laborShare).toString())
+                        $('#haziran2').text((uIShare).toString())
+                        $('#haziran3').text((inTaxBase).toString())
+                        $('#haziran4').text((inTaxAmount).toString())
+                        $('#haziran5').text((stumpDutyAmount).toString())
+                        $('#haziran6').text(sumOfDeductions).toString()
+                        $('#haziran7').text((netWage).toString())
+                        $('#haziran8').text((employerShare).toString())
+                        $('#haziran9').text((uIEShare).toString())
+
+                        $('#temmuz1').text((laborShare).toString())
+                        $('#temmuz2').text((uIShare).toString())
+                        $('#temmuz3').text((inTaxBase).toString())
+                        $('#temmuz4').text((inTaxAmount).toString())
+                        $('#temmuz5').text((stumpDutyAmount).toString())
+                        $('#temmuz6').text(sumOfDeductions).toString()
+                        $('#temmuz7').text((netWage).toString())
+                        $('#temmuz8').text((employerShare).toString())
+                        $('#temmuz9').text((uIEShare).toString())
+
+                        $('#agustos1').text((laborShare).toString())
+                        $('#agustos2').text((uIShare).toString())
+                        $('#agustos3').text((inTaxBase).toString())
+                        $('#agustos4').text((inTaxAmount).toString())
+                        $('#agustos5').text((stumpDutyAmount).toString())
+                        $('#agustos6').text(sumOfDeductions).toString()
+                        $('#agustos7').text((netWage).toString())
+                        $('#agustos8').text((employerShare).toString())
+                        $('#agustos9').text((uIEShare).toString())
+
+                        $('#eylül1').text((laborShare).toString())
+                        $('#eylül2').text((uIShare).toString())
+                        $('#eylül3').text((inTaxBase).toString())
+                        $('#eylül4').text((inTaxAmount).toString())
+                        $('#eylül5').text((stumpDutyAmount).toString())
+                        $('#eylül6').text(sumOfDeductions).toString()
+                        $('#eylül7').text((netWage).toString())
+                        $('#eylül8').text((employerShare).toString())
+                        $('#eylül9').text((uIEShare).toString())
+
+                        $('#ekim1').text((laborShare).toString())
+                        $('#ekim2').text((uIShare).toString())
+                        $('#ekim3').text((inTaxBase).toString())
+                        $('#ekim4').text((inTaxAmount).toString())
+                        $('#ekim5').text((stumpDutyAmount).toString())
+                        $('#ekim6').text(sumOfDeductions).toString()
+                        $('#ekim7').text((netWage).toString())
+                        $('#ekim8').text((employerShare).toString())
+                        $('#ekim9').text((uIEShare).toString())
+
+                        $('#kasım1').text((laborShare).toString())
+                        $('#kasım2').text((uIShare).toString())
+                        $('#kasım3').text((inTaxBase).toString())
+                        $('#kasım4').text((inTaxAmount).toString())
+                        $('#kasım5').text((stumpDutyAmount).toString())
+                        $('#kasım6').text(sumOfDeductions).toString()
+                        $('#kasım7').text((netWage).toString())
+                        $('#kasım8').text((employerShare).toString())
+                        $('#kasım9').text((uIEShare).toString())
+
+                        $('#aralım1').text((laborShare).toString())
+                        $('#aralık2').text((uIShare).toString())
+                        $('#aralık3').text((inTaxBase).toString())
+                        $('#aralık4').text((inTaxAmount).toString())
+                        $('#aralık5').text((stumpDutyAmount).toString())
+                        $('#aralık6').text(sumOfDeductions).toString()
+                        $('#aralık7').text((netWage).toString())
+                        $('#aralık8').text((employerShare).toString())
+                        $('#aralık9').text((uIEShare).toString())
+
+                        $.ajax({
+                            type: "Post",
+                            url: '/Payroll/Add',
+
+                            data: {
+                                GrossSalary: $('#text').val().replace(".", ","),
+                                LaborShare: $('#ocak1').text().replace(".", ","),
+                                UIShare: $('#ocak2').text().replace(".", ","),
+                                IncomeTaxBase:$('#ocak3').text().replace(".",","),
+                                IncomeTaxAmount: $('#ocak4').text().replace(".", ","),
+                                StampDutAmount: $('#ocak5').text().replace(".", ","),
+                                SumOfDeductions: $('#ocak6').text().replace(".", ","),
+                                NetWage: $('#ocak7').text().replace(".", ","),
+                                EmployerShare: $('#ocak8').text().replace(".", ","),
+                                UIEShare: $('#ocak9').text().replace(".", ","),
+
+                            },
+
+                        });
+                          window.location.href = "@Url.Action("GetAll","Payroll")";
+                    })
+
+                </script>
+            }
+        </div>
+    </div>
+
+</body>
+</html>

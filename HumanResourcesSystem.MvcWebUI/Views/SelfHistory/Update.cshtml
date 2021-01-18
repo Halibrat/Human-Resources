@@ -1,0 +1,101 @@
+﻿@using HumanResourcesSystem.Entities.Concrete
+@model HumanResourcesSystem.Entities.Concrete.SelfHistory
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <title>Çalısan Güncelle</title>
+    <link href="~/Files/Self History/style.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <title>Özgeçmiş Güncelle</title>
+</head>
+<body>
+    <input type="checkbox" id="check">
+    <label for="check">
+        <i class="fas fa-bars" id="btn"></i>
+        <i class="fas fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+        <header>X-HRS</header>
+        <ul>
+            <li><a href="/SelfHistory/Index"><i class="fa fa-users" aria-hidden="true"></i>Özgeçmiş</a></li>
+            <li><a href="/SelfHistory/Add"><i class="fa fa-plus" aria-hidden="true"></i>Ekle</a></li>
+            <li><a href="/SelfHistory/Update"><i class="fab fa-chrome" aria-hidden="true"></i>Güncelle</a></li>
+            <li><a href="/SelfHistory/GetAll"><i class="fa fa-list-ol" aria-hidden="true"></i>Listele</a></li>
+            <li><a href=""><i class="fa fa-search" aria-hidden="true"></i>Ara</a></li>
+            <li><a href="/SelfHistory/Delete"><i class="fa fa-trash" aria-hidden="true"></i>Sil</a></li>
+        </ul>
+    </div>
+
+    <div class="container text-center">
+        <h1 class="order py-4 ">
+            <i class="far fa-handshake"></i> Özgeçmiş
+        </h1>
+
+        <div class="d-flex justify-content-center">
+            @using (Html.BeginForm("Update", "SelfHistory", FormMethod.Post))
+            {
+                <div class="row">
+                    @Html.TextBoxFor(sh => sh.FirstName, new { @class = "form-control", placeholder = "İsim" })
+                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+
+                    @Html.TextBoxFor(sh => sh.LastName, new { @class = "form-control", placeholder = "Soyisim" })
+                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+
+                    @Html.TextBoxFor(sh => sh.BirthPlace, new { @class = "form-control", placeholder = "Doğum Yeri" })
+                    @Html.ValidationMessageFor(model => model.BirthPlace, "", new { @class = "text-danger" })
+
+                    @Html.TextBoxFor(sh => sh.Address, new { @class = "form-control", placeholder = "Adres" })
+                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+
+                    @Html.TextBoxFor(sh => sh.Phone, new { @class = "form-control", placeholder = "Telefon Num." })
+                    @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+
+                    @Html.TextBoxFor(sh => sh.Email, new { @class = "form-control", placeholder = "Mail" })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
+                    @Html.TextBoxFor(sh => sh.Experience, new { @class = "form-control", placeholder = "Deneyim" })
+                    @Html.ValidationMessageFor(model => model.Experience, "", new { @class = "text-danger" })
+
+                    @Html.TextBoxFor(sh => sh.EducationStatus, new { @class = "form-control", placeholder = "Eğitim Durumu" })
+                    @Html.ValidationMessageFor(model => model.EducationStatus, "", new { @class = "text-danger" })
+
+                    @Html.TextBoxFor(sh => sh.MartialStatus, new { @class = "form-control", placeholder = "Medeni Durumu" })
+                    @Html.ValidationMessageFor(model => model.MartialStatus, "", new { @class = "text-danger" })
+
+                    @Html.TextBoxFor(sh => sh.MilitaryService, new { @class = "form-control", placeholder = "Askerlik Durumu" })
+                    @Html.ValidationMessageFor(model => model.MilitaryService, "", new { @class = "text-danger" })
+
+                    @Html.TextBoxFor(sh => sh.DriverLicence, new { @class = "form-control", placeholder = "Sürücü Belgesi" })
+                    @Html.ValidationMessageFor(model => model.DriverLicence, "", new { @class = "text-danger" })
+
+                    @Html.TextBoxFor(sh => sh.Smoke, new { @class = "form-control", placeholder = "Sigara Kullanıyor Musun?" })
+                    @Html.ValidationMessageFor(model => model.Smoke, "", new { @class = "text-danger" })
+
+                </div>
+
+
+                <div class="d-flex justify-content-center">
+                    <button class="btn btn-warning" id="btn-update">Update</button>
+
+                </div>
+            }
+        </div>
+
+    </div>
+
+</body>
+</html>

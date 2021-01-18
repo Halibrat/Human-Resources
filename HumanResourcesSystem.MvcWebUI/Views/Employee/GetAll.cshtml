@@ -1,0 +1,101 @@
+﻿@model HumanResourcesSystem.MvcWebUI.Models.EmployeeListViewModel
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+
+    <title>Çalışan Listele</title>
+
+    <link href="~/Files/Employee/style.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+<body>
+    <input type="checkbox" id="check">
+    <label for="check">
+        <i class="fas fa-bars" id="btn"></i>
+        <i class="fas fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+        <header>X-HRS</header>
+        <ul>
+            <li><a href="/Employee/Index"><i class="fa fa-users" aria-hidden="true"></i>Elemanlar</a></li>
+            <li><a href="/Employee/Add"><i class="fa fa-plus" aria-hidden="true"></i>Ekle</a></li>
+            <li><a href="/Employee/Update"><i class="fab fa-chrome" aria-hidden="true"></i>Güncelle</a></li>
+            <li><a href="/Employee/GetAll"><i class="fa fa-list-ol" aria-hidden="true"></i>Listele</a></li>
+            <li><a href="/Employee/Search"><i class="fa fa-search" aria-hidden="true"></i>Ara</a></li>
+            <li><a href="/Employee/Delete"><i class="fa fa-trash" aria-hidden="true"></i>Sil</a></li>
+        </ul>
+    </div>
+
+    <div class="container text-center">
+        <h1 class="order py-4 ">
+            <i class="far fa-handshake"></i> Listele
+
+        </h1>
+
+
+
+
+        <!--  Table -->
+        <div class="d-flex table-data">
+            <table class="table table-striped">
+
+                <thead>
+                    <tr>
+
+                        <th scope="col">Tc Numarası</th>
+                        <th scope="col">İsim</th>
+                        <th scope="col">Soy Ad</th>
+                        <th scope="col">Başlangıc</th>
+                        <th scope="col">Giriş</th>
+                        <th scope="col">Çıkıs</th>
+                        <th scope="col">Edit</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                @foreach (var model in Model.Employees)
+                {
+            <tbody id="tbody">
+
+
+
+                <tr>
+
+
+                    <td>@Html.DisplayFor(modelItem => model.TckNo)</td>
+                    <td>@Html.DisplayFor(modelItem => model.FirstName)</td>
+                    <td>@Html.DisplayFor(modelItem => model.LastName)</td>
+                    <td>@Html.DisplayFor(modelItem => model.InagurationDate)</td>
+                    <td>@Html.DisplayFor(modelItem => model.CheckInOut)</td>
+                    <td>@Html.DisplayFor(modelItem => model.CheckInTime)</td>
+                    <td><a href="/Employee/Update/@Html.DisplayFor(modelItem=>model.Id)" class="btn btn-danger"><i class="fas fa-edit"></i></a></td>
+                    <td><a href="/Employee/Delete/@Html.DisplayFor(modelItem=>model.Id)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a></td>
+
+                </tr>
+
+
+          
+            </tbody>
+                }
+            </table>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

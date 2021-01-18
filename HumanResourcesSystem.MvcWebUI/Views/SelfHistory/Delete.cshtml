@@ -1,0 +1,85 @@
+﻿@using HumanResourcesSystem.Entities.Concrete
+@model IEnumerable<HumanResourcesSystem.Entities.Concrete.SelfHistory>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+
+    <title>Özgeçmiş Silme</title>
+    <link href="~/Files/Self History/style.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+<body>
+    <input type="checkbox" id="check">
+    <label for="check">
+        <i class="fas fa-bars" id="btn"></i>
+        <i class="fas fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+        <header>X-HRS</header>
+        <ul>
+            <li><a href="/SelfHistory/Index"><i class="fa fa-users" aria-hidden="true"></i>Özgeçmiş</a></li>
+            <li><a href="/SelfHistory/Add"><i class="fa fa-plus" aria-hidden="true"></i>Ekle</a></li>
+            <li><a href="/SelfHistory/Update"><i class="fab fa-chrome" aria-hidden="true"></i>Güncelle</a></li>
+            <li><a href="/SelfHistory/GetAll"><i class="fa fa-list-ol" aria-hidden="true"></i>Listele</a></li>
+            <li><a href=""><i class="fa fa-search" aria-hidden="true"></i>Ara</a></li>
+            <li><a href="/SelfHistory/Delete"><i class="fa fa-trash" aria-hidden="true"></i>Sil</a></li>
+        </ul>
+    </div>
+
+    <div class="container text-center">
+        <h1 class="order py-4 ">
+            <i class="far fa-handshake"></i> Özgeçmiş
+        </h1>
+      
+        <div class="d-flex table-data">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">İsim</th>
+                        <th scope="col">Soyisim</th>
+                        <th scope="col">Doğum Yeri</th>                   
+                        <th scope="col">Telefon</th>
+                        <th scope="col">Mail</th>                     
+                        <th scope="col">Fotoğraf</th>
+                        <th scope="col">Sil</th>
+                        <th scope="col">Güncelle</th>
+                    </tr>
+                </thead>
+                @foreach (SelfHistory item in Model)
+                {
+                    <tbody id="tbody">
+                        <tr>
+
+                            <td>@item.Id</td>
+                            <td>@item.FirstName</td>
+                            <td>@item.LastName</td>
+                            <td>@item.BirthPlace</td>
+                            <td>@item.Phone</td>
+                            <td>@item.Email</td>
+                            <td><img src="~/Image/@item.Photo" width="100" height="100" /></td>
+                            <td> @Html.ActionLink("Delete", "SelfHistoryDelete", "SelfHistory", new { id = item.Id }, new { @class = "btn btn-danger" })</td>
+                            <td><a href="/SelfHistory/Update/@item.Id" class="btn btn-danger">Update</a></td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+        </div>
+
+    </div>
+</body>
+</html>

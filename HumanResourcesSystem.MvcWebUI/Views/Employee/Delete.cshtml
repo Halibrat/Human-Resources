@@ -1,0 +1,107 @@
+﻿@using HumanResourcesSystem.Entities.Concrete
+@model IEnumerable<HumanResourcesSystem.Entities.Concrete.Employee>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+
+    <title>Çalışan Silme</title>
+    <link href="~/Files/Employee/style.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+<body>
+    <input type="checkbox" id="check">
+    <label for="check">
+        <i class="fas fa-bars" id="btn"></i>
+        <i class="fas fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+        <header>X-HRS</header>
+        <ul>
+            <li><a href="/Employee/Index"><i class="fa fa-users" aria-hidden="true"></i>Elemanlar</a></li>
+            <li><a href="/Employee/Add"><i class="fa fa-plus" aria-hidden="true"></i>Ekle</a></li>
+            <li><a href="/Employee/Update"><i class="fab fa-chrome" aria-hidden="true"></i>Güncelle</a></li>
+            <li><a href="/Employee/GetAll"><i class="fa fa-list-ol" aria-hidden="true"></i>Listele</a></li>
+            <li><a href="/Employee/Search"><i class="fa fa-search" aria-hidden="true"></i>Ara</a></li>
+            <li><a href="/Employee/Delete"><i class="fa fa-trash" aria-hidden="true"></i>Sil</a></li>
+        </ul>
+    </div>
+    <body>
+        <div class="container text-center">
+            <h1 class="order py-4 ">
+                <i class="far fa-handshake"></i> Çalışanlar
+            </h1>
+            @using (Html.BeginForm("Search", "Employee", FormMethod.Get))
+            {
+        <div class="d-flex justify-content-center">
+            <div class="row">
+                 <div class="col">
+                      @Html.TextBox("text", null, new { @class = "form-control ", @placeholder = "Personel Ara" })
+                 </div>
+            </div>
+           
+
+
+        </div>
+                <div class="d-flex justify-content-center">
+
+                    <button class="btn btn-primary" id="btn-search">Search</button>
+
+                </div>
+            }
+            <!--  Table -->
+            <div class="d-flex table-data">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Tc No</th>
+                            <th scope="col">İsim</th>
+                            <th scope="col">Soyisim</th>
+                            <th scope="col">Başlangıc Tarihi</th>
+
+                            <th scope="col">Sil</th>
+                            <th scope="col">Güncelle</th>
+                        </tr>
+                    </thead>
+                    @foreach (Employee item in Model)
+                    {
+
+                        <tbody id="tbody">
+                            <tr>
+
+                                <td>@item.Id</td>
+                                <td>@item.TckNo</td>
+                                <td>@item.FirstName</td>
+                                <td>@item.LastName</td>
+                                <td>@item.InagurationDate</td>
+                                <td> @Html.ActionLink("Delete", "DeleteEmployee", "Employee", new { id = item.Id }, new { @class = "btn btn-danger" })</td>
+                                <td><a href="/Employee/Update/@item.Id" class="btn btn-danger">Update</a></td>
+
+
+
+                            </tr>
+
+                        </tbody>
+                    }
+                </table>
+            </div>
+
+        </div>
+    </body>
+</body>
+</html>

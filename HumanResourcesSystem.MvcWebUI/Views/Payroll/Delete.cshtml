@@ -1,0 +1,122 @@
+﻿@using HumanResourcesSystem.Entities.Concrete
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<HumanResourcesSystem.Entities.Concrete.Payroll>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+
+    <title>Bordro Silme</title>
+
+    <link href="~/Files/Payroll/style.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+<body>
+    <input type="checkbox" id="check">
+    <label for="check">
+        <i class="fas fa-bars" id="btn"></i>
+        <i class="fas fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+        <header>X-HRS</header>
+        <ul>
+            <li><a href="/Payroll/Index"><i class="fa fa-users" aria-hidden="true"></i>Bordro</a></li>
+            <li><a href="/Payroll/Add"><i class="fa fa-plus" aria-hidden="true"></i>Ekle</a></li>
+            <li><a href="/Payroll/GetAll"><i class="fa fa-list-ol" aria-hidden="true"></i>Listele</a></li>
+            <li><a href="/Payroll/Search"><i class="fa fa-search" aria-hidden="true"></i>Ara</a></li>
+            <li><a href="/Payroll/Delete"><i class="fa fa-trash" aria-hidden="true"></i>Sil</a></li>
+        </ul>
+    </div>
+   
+        <div class="container text-center">
+            <h1 class="order py-4 ">
+                <i class="far fa-handshake"></i> Çalışanlar
+            </h1>
+            @using (Html.BeginForm("Search", "Payroll", FormMethod.Get))
+            {
+                <div class="d-flex justify-content-center">
+                    <div class="row">
+                        <div class="col">
+                            @Html.TextBox("text", null, new { @class = "form-control ", @placeholder = "Bordro Ara" })
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="d-flex justify-content-center">
+
+                    <button class="btn btn-primary" id="btn-search">Search</button>
+
+                </div>
+            }
+            <!--  Table -->
+        <div class="d-flex table-data">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Maaş</th>
+                        <th scope="col">SSK İşçi</th>
+                        <th scope="col">İşsizlik İşçi Sig</th>
+                        <th scope="col">Gelir Vergi Mat.</th>
+                        <th scope="col">Gelir Vergisi</th>
+                        <th scope="col">Damga Vergisi</th>
+                        <th scope="col">Kesintiler Toplamı</th>
+                        <th scope="col">Net Ücret</th>
+                        <th scope="col">SGK işveren Payı</th>
+                        <th scope="col">İşsizlik Sig. İşveren Payı</th>
+
+                        <th scope="col">Sil</th>
+
+                    </tr>
+                </thead>
+                @foreach (Payroll item in Model)
+                {
+
+                    <tbody id="tbody">
+                        <tr>
+
+                            <td>@item.Id</td>
+                            <td>@item.GrossSalary</td>
+                            <td>@item.LaborShare</td>
+                            <td>@item.UIShare</td>
+                            <td>@item.IncomeTaxBase</td>
+                            <td>@item.IncomeTaxAmount</td>
+                            <td>@item.StampDutAmount</td>
+                            <td>@item.SumOfDeductions</td>
+                            <td>@item.NetWage</td>
+                            <td>@item.EmployerShare</td>
+                            <td>@item.UIEShare</td>
+                            <td> @Html.ActionLink("Delete", "PayrollDelete", "Payroll", new { id = item.Id }, new { @class = "btn btn-danger" })</td>
+
+                        </tr>
+
+                    </tbody>
+                }
+            </table>
+            
+        </div>
+        
+        </div>
+        <div class="pagination">
+            <ul>
+                @Html.PagedListPager((IPagedList)Model, page => Url.Action("Delete", new { page = page }))
+            </ul>
+        </div>
+</body>
+</html>

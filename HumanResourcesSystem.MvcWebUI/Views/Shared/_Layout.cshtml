@@ -1,0 +1,42 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anasayfa</title>
+
+    <link href="~/Files/HomePage/style.css" rel="stylesheet"
+    <img src="~/Files/HomePage/img/journalist-working-in-his-vintage-office-at-night-RCBSW6F.jpg" //>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <label class="logo">X-HRS</label>
+        <ul>
+            <li><a class="active" href="/Default/Index">Anasayfa</a></li>
+            <li><a href="/Default/Login">İlanlar</a></li>
+            <li><a href="/Default/Login">Personel</a></li>
+            <li><a href="#">Hakkımızda</a></li>
+            <li><a href="/Default/Contact">İletişim</a></li>
+        </ul>
+      
+    </nav>
+    <section>
+      
+       @RenderBody()
+
+    </section>
+    <script src="~/Javascripts/jquery/jquery35.js"></script>
+</body>
+</html>
+

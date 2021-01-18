@@ -1,0 +1,43 @@
+﻿@model HumanResourcesSystem.Entities.Concrete.User
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="~/Files/Login/style.css" rel="stylesheet"
+    <img src="~/Files/Login/img/chalkboard-and-coffee-PCTJ4RK.JPG" /> 
+
+    <title>Login</title>
+</head>
+
+<body>
+    <form method="post">
+        <div class="login-box">
+            <h1>Login</h1>
+         
+            <div class="textbox">
+
+                @Html.TextBox("UserName", null, new { @class = "form-control", @placeholder = "Kullanıcı Adı" })
+            </div>
+
+            <div class="textbox">
+
+                @Html.Password("Password", null, new { @class = "form-control", @placeholder = "Şifre" })
+            </div>
+
+            <input class="btn" type="submit" name="" value="Giriş Yap">
+
+            <input formaction="/User/Index" class="btn" type="submit" name="" value="Kayıt Ol" />
+
+
+        </div>
+
+    </form>
+</body>
+
+</html>

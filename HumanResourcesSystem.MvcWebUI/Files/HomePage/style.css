@@ -1,0 +1,111 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    
+
+}
+body{
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+nav{
+    background: rgba(109, 53, 26, 0.95);
+    height: 80px;
+    width: 100%;
+}
+label.logo{
+    color:white;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+}
+nav ul{
+    float: right;
+    margin-right: 20px;
+}
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+}
+nav ul li a{
+    color: white;
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+a.active,a:hover{
+    background:#000000;
+    transition: .5s;
+
+}
+.checkbtn{
+    font-size: 30px;
+    color:white;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+#check{
+    display: none;
+
+}
+section{
+    background: url(vintage-still-life-vintage-items-on-ancient-map-PEAB9XB.jpg) no-repeat;
+    background-size: cover;
+    height: calc(100vh-80px);
+}
+@media (max-width:952px){
+    label.logo{
+        font-size: 30px;
+        padding-left: 50px;
+    }
+    nav ul li a{
+        font-size: 16px;
+    }
+}
+@media (max-width:858px){
+    .checkbtn{
+        display: block;
+    }
+    ul{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background:rgba(109, 53, 26, 0.55);
+        top: 80px;
+        left:-100%;
+        text-align: center;
+        transition: all .5s;
+    }
+    nav ul li{
+        display: block;
+        margin: 50px 0;
+        line-height: 30px;
+    }
+    nav ul li a{
+        font-size:20px;
+    }
+    a:hover,a.active{
+        background: none;
+        color:#000000;
+    }
+    #check:checked~ul{
+        left:0;
+    }
+   
+}
+
+section{
+    background: url(img/journalist-working-in-his-vintage-office-at-night-RCBSW6F.jpg) no-repeat;
+    background-position: center;
+    background-size: cover;
+    height:100vh;
+}

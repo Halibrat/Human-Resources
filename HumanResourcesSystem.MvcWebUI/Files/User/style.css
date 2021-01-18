@@ -1,0 +1,92 @@
+body {
+    background: url(img/search-for-talent-or-looking-for-employee-MPKECA7.jpg) no-repeat;
+    background-size: cover;
+    height: 100vh;
+    background-position: center;
+}
+
+.wrap {
+    width: 350px;
+    margin: auto;
+    margin-top: 20px;
+    padding: 2px;
+    background: rgba(240, 223, 223, 0.027);
+}
+
+form {
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px;
+}
+
+h2 {
+    text-align: center;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+input {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+    input[type=radio] {
+        visibility: hidden;
+    }
+
+label.radio {
+    cursor: pointer;
+    text-indent: 35px;
+    color: white;
+    overflow: visible;
+    display: inline-block;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+    label.radio:before {
+        background: rgba(75, 75, 77, 0.5);
+        content: '';
+        position: absolute;
+        top: 2px;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        border-radius: 100%;
+    }
+
+    label.radio:after {
+        opacity: 0;
+        content: '';
+        position: absolute;
+        width: 0.5em;
+        height: 0.25em;
+        background: transparent;
+        top: 7.5px;
+        left: 4.5px;
+        border: 3px solid #ffffff;
+        border-top: none;
+        border-right: none;
+        -webkit-transform: rotate(-45deg);
+        -moz-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+
+input[type=radio]:checked + label:after {
+    opacity: 1;
+}
+
+hr {
+    color: #a9a9a9;
+    opacity: 0.3;
+}
+
+.accounttype {
+    margin-left: 8px;
+    margin-top: 20px;
+}

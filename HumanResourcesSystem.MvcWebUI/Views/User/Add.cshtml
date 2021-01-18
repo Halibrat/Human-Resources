@@ -1,0 +1,65 @@
+﻿@model HumanResourcesSystem.Entities.Concrete.User
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Files/User/style.css" rel="stylesheet"
+    <img src="~/Files/User/img/search-for-talent-or-looking-for-employee-MPKECA7.jpg"/>
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="wrap">
+        
+        <form method="post">
+            <h2>Kayıt Formu</h2>
+       
+            <hr>
+            <div class="accounttype">
+
+                <p class="lead">@Html.ValidationMessage("UserException")</p>
+
+                <hr>
+                @Html.TextBoxFor(u => u.TckNo, new { @class = "form-control", placeholder = "Tc Kimlik Numarası" })
+                @Html.ValidationMessageFor(model => model.TckNo, "", new { @class = "text-danger" })
+
+
+                @Html.TextBoxFor(u => u.RoleName, new { @class = "form-control", placeholder = "Visitor" })
+                @Html.ValidationMessageFor(model => model.RoleName, "", new { @class = "text-danger" })
+
+                @Html.TextBoxFor(u => u.FirstName, new { @class = "form-control", placeholder = "Ad" })
+                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+
+                @Html.TextBoxFor(u => u.LastName, new { @class = "form-control", placeholder = "Soyad" })
+                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+
+                @Html.TextBoxFor(u => u.UserName, new { @class = "form-control", placeholder = "Kullanıcı Adı" })
+                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+
+                @Html.TextBoxFor(u => u.Email, new { @class = "form-control", placeholder = "Mail Adresi" })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
+                @Html.TextBoxFor(u => u.PhoneNumber, new { @class = "form-control", placeholder = "Telefon Numarası" })
+                @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+
+                @Html.PasswordFor(u => u.Password, new { @class = "form-control", placeholder = "Şifre" })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+
+                @Html.TextBoxFor(u => u.BirthDate, new { @class = "form-control", placeholder = "Doğum Tarihi" })
+                @Html.ValidationMessageFor(model => model.BirthDate, "", new { @class = "text-danger" })
+
+                <br>
+
+                <input type="submit" value="Kayıt Ol">
+            </div>
+        </form>
+
+
+    </div>
+</body>
+</html>

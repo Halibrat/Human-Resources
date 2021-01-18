@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{75220EF7-C4F9-47B4-8B72-697B852E5BAA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HumanResourcesSystem.DataAccess</RootNamespace>
+    <AssemblyName>HumanResourcesSystem.DataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\IBirthCertificateDal.cs" />
+    <Compile Include="Abstract\ICertificationDal.cs" />
+    <Compile Include="Abstract\IDrivingLicenceDal.cs" />
+    <Compile Include="Abstract\IEducationDal.cs" />
+    <Compile Include="Abstract\IEmployeeDal.cs" />
+    <Compile Include="Abstract\IJobDal.cs" />
+    <Compile Include="Abstract\IJobPostingDal.cs" />
+    <Compile Include="Abstract\IMaterialDal.cs" />
+    <Compile Include="Abstract\IOrganizationDal.cs" />
+    <Compile Include="Abstract\IPayrollDal.cs" />
+    <Compile Include="Abstract\IRoleDal.cs" />
+    <Compile Include="Abstract\ISelfHistoryDal.cs" />
+    <Compile Include="Abstract\ITopOrganizationDal.cs" />
+    <Compile Include="Abstract\IUserDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfBirthCertificateDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfCertificationDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfDrivingLicenceDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfEducationDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfEmployeeDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfJobDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfJobPostingDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfMaterialDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfOrganizationDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfPayrollDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfRoleDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfSelfHistoryDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfTopOrganizationDal.cs" />
+    <Compile Include="Concrete\EntityFramework\EfUserDal.cs" />
+    <Compile Include="Concrete\EntityFramework\HumanResourcesContext.cs" />
+    <Compile Include="Concrete\EntityFramework\Mappings\BirthCertificateMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mappings\CertificationMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mappings\DrivingLicenceMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mappings\EducationMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mappings\EmployeeMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mappings\JobMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mappings\JobPostingMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mappings\MaterialMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mappings\OrganizationMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mappings\PayrollMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mappings\RoleMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mappings\SelfHistoryMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mappings\TopOrganizationMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mappings\UserMap.cs" />
+    <Compile Include="Concrete\EntityFramework\Mappings\UserRoleMap.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Concrete\Nhibernate\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Visual Studio Çalışmaları\CourseTesting\MemberRegistiration\DevFramework.Core\DevFramework.Core.csproj">
+      <Project>{93C91DD3-067E-4806-A7FF-F8F9B3E570D7}</Project>
+      <Name>DevFramework.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HumanResourcesSystem.Entities\HumanResourcesSystem.Entities.csproj">
+      <Project>{0B2A582C-7A58-448B-BF28-DDB078DD2E2F}</Project>
+      <Name>HumanResourcesSystem.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>

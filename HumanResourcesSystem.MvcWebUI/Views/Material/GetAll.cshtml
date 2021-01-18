@@ -1,0 +1,94 @@
+﻿@model HumanResourcesSystem.MvcWebUI.Models.MaterialListViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+
+    <title>Materyal Listele</title>
+
+    <link href="~/Files/Employee/style.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+<body>
+    <input type="checkbox" id="check">
+    <label for="check">
+        <i class="fas fa-bars" id="btn"></i>
+        <i class="fas fa-times" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+        <header>X-HRS</header>
+        <ul>
+            <li><a href="/Material/Index"><i class="fa fa-users" aria-hidden="true"></i>Matertal Talep</a></li>
+            <li><a href="/Material/Add"><i class="fa fa-plus" aria-hidden="true"></i>Ekle</a></li>
+            <li><a href="/Material/Update"><i class="fab fa-chrome" aria-hidden="true"></i>Güncelle</a></li>
+            <li><a href="/Material/GetAll"><i class="fa fa-list-ol" aria-hidden="true"></i>Listele</a></li>
+            <li><a href="/Material/Search"><i class="fa fa-search" aria-hidden="true"></i>Ara</a></li>
+            <li><a href="/Material/Delete"><i class="fa fa-trash" aria-hidden="true"></i>Sil</a></li>
+        </ul>
+    </div>
+
+    <div class="container text-center">
+        <h1 class="order py-4 ">
+            <i class="far fa-handshake"></i> Listele
+
+        </h1>
+
+
+
+
+        <!--  Table -->
+        <div class="d-flex table-data">
+            <table class="table table-striped">
+
+                <thead>
+                    <tr>
+
+                        <th scope="col">Materyal Adı</th>
+                        <th scope="col">Kurum Adı</th>
+                        <th scope="col">Adet</th>
+                        <th scope="col">Güncelle</th>
+                        <th scope="col">Sil</th>
+                    </tr>
+                </thead>
+                @foreach (var model in Model.Materials)
+                {
+                    <tbody id="tbody">
+
+
+
+                        <tr>
+
+
+                            <td>@Html.DisplayFor(modelItem => model.MaterialName)</td>
+                            <td>@Html.DisplayFor(modelItem => model.OrganizationName)</td>
+                            <td>@Html.DisplayFor(modelItem => model.Quantity)</td>
+                            <td><a href="/Material/Update/@Html.DisplayFor(modelItem=>model.Id)" class="btn btn-danger"><i class="fas fa-edit"></i></a></td>
+                            <td><a href="/Material/Delete/@Html.DisplayFor(modelItem=>model.Id)" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a></td>
+
+                        </tr>
+
+
+
+                    </tbody>
+                }
+            </table>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
