@@ -1,4 +1,5 @@
-﻿
+﻿@using HumanResourcesSystem.Entities.Concrete
+@model IEnumerable<HumanResourcesSystem.Entities.Concrete.User>
 @{
     Layout = null;
 }
@@ -8,7 +9,7 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
-    <title>Employee</title>
+    <title>Özgeçmiş</title>
 
     <link href="~/Files/Personnel/style.css" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
@@ -23,13 +24,14 @@
     <div class="sidebar">
         <header>X-HRS</header>
         <ul>
-
+            <li><a><i class="far fa-smile"></i>@User.Identity</a></li>
             <li><a href="/SelfHistory/Index"><i class="fa fa-users" aria-hidden="true"></i>Özgeçmiş</a></li>
             <li><a href="/SelfHistory/Add"><i class="fa fa-plus" aria-hidden="true"></i>Ekle</a></li>
             <li><a href="/SelfHistory/Update"><i class="fab fa-chrome" aria-hidden="true"></i>Güncelle</a></li>
-            <li><a href="/SelfHistory/GetAll"><i class="fa fa-list-ol" aria-hidden="true"></i>Listele</a></li>
+            <li><a href="/SelfHistory/GetAll"><i class="fa fa-list-ol" aria-hidden="true"></i>İş İlanlar</a></li>
             <li><a href=""><i class="fa fa-search" aria-hidden="true"></i>Ara</a></li>
             <li><a href="/SelfHistory/Delete"><i class="fa fa-trash" aria-hidden="true"></i>Sil</a></li>
+            <li><a href="/Default/Index"><i class="fas fa-home"></i>Ana Sayfa</a></li>
 
         </ul>
     </div>

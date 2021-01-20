@@ -40,7 +40,6 @@ namespace HumanResourcesSystem.MvcWebUI.Controllers
         public ActionResult Add(SelfHistory selfHistory)
         {
             UploadPhoto(selfHistory);
-
             _selfHistoryService.Add(selfHistory);
             return RedirectToAction("Delete");
         }
@@ -90,9 +89,6 @@ namespace HumanResourcesSystem.MvcWebUI.Controllers
             }
 
         }
-
-
-
 
     }
 }
