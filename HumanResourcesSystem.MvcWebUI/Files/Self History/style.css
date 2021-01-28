@@ -58,7 +58,7 @@ label #btn,label #cancel{
   border-radius: 3px;
   cursor: pointer;
 }
-label #btn{
+label , #btn{
   left: 40px;
   top: 25px;
   font-size: 35px;
@@ -95,17 +95,17 @@ label #cancel{
 .container {
   background-color:transparent;
   margin-top: 0px;
- 
-  
+
 }
 h1 i{
  color:white;
 }
 
-.d-flex input {
+.d-flex input{
   margin: .9em 0em;
   width:250px;
   margin-left:200px
+
 }
 
 .d-flex button {
@@ -148,6 +148,7 @@ table .btndelete {
       top: -40px;
   }
 }
+
 
 section{
   background: url(img/business-workplace-flatlay-background-9AJP9KK.jpg) no-repeat ;

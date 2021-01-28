@@ -15,15 +15,18 @@ namespace HumanResourcesSystem.Business.Concrete
     public class EmployeeManager : IEmployeeService
     {
         private IEmployeeDal _employeeDal;
-        public EmployeeManager(IEmployeeDal employeeDal)
+        private IUserDal _userDal;
+        public EmployeeManager(IEmployeeDal employeeDal,IUserDal userDal)
         {
             _employeeDal = employeeDal;
+            _userDal = userDal;
         }
 
         [FluentValidationAspect(typeof(EmployeeValidator))]
         [SecuredOperation(Roles ="Admin")]
         public void Add(Employee employee)
         {
+            
             _employeeDal.Add(employee);
         }
         [SecuredOperation(Roles = "Admin")]
@@ -60,5 +63,7 @@ namespace HumanResourcesSystem.Business.Concrete
         {
             _employeeDal.Update(employee);
         }
+
+       
     }
 }

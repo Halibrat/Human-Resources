@@ -16,7 +16,7 @@ namespace HumanResourcesSystem.DataAccess.Concrete.EntityFramework
         {
             using (HumanResourcesContext context = new HumanResourcesContext ())
             {
-                var result = from ur in context.UserRoles join r in context.Roles on ur.UserId equals user.UserId where ur.UserId == user.UserId select new UserRoleItem { RoleName = r.RoleName };
+                var result = from ur in context.UserRoles join r in context.Roles on ur.UserId equals user.Id   where ur.UserId == user.Id where user.RoleName==r.RoleName select new UserRoleItem { RoleName = r.RoleName };
                 return result.ToList();
             }
         }

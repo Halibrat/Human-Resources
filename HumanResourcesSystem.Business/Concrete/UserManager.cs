@@ -24,7 +24,6 @@ namespace HumanResourcesSystem.Business.Concrete
             _kpsService = kpsService;
         }
         [FluentValidationAspect(typeof(UserValidator))]
-      
         public void Add(User user)
         {
             ChcekIfUserExists(user);
@@ -44,7 +43,7 @@ namespace HumanResourcesSystem.Business.Concrete
 
         public User GetById(int id)
         {
-            return _userDal.Get(u => u.UserId == id);
+            return _userDal.Get(u => u.Id == id);
         }
         [FluentValidationAspect(typeof(UserValidator))]
         public User GetByUserNameAndPassword(string userName, string password)

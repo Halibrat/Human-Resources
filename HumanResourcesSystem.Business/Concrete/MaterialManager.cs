@@ -1,4 +1,5 @@
-﻿using DevFramework.Core.Aspects.Postsharp.ValidationAspects;
+﻿using DevFramework.Core.Aspects.Postsharp.AuthorizationAspects;
+using DevFramework.Core.Aspects.Postsharp.ValidationAspects;
 using HumanResourcesSystem.Business.Abstract;
 using HumanResourcesSystem.Business.ValidationRules.FluentValidation;
 using HumanResourcesSystem.DataAccess.Abstract;
@@ -19,21 +20,22 @@ namespace HumanResourcesSystem.Business.Concrete
             _materialDal = materialDal;
         }
         [FluentValidationAspect(typeof(MaterialValidator))]
+        [SecuredOperation(Roles ="Admin,Personnel")]
         public void Add(Material material)
         {
             _materialDal.Add(material);
         }
-
+        [SecuredOperation(Roles = "Admin,Personnel")]
         public void Delete(Material material)
         {
             _materialDal.Delete(material);
         }
-
+        [SecuredOperation(Roles = "Admin,Personnel")]
         public List<Material> GetAll()
         {
             return _materialDal.GetList();
         }
-
+        [SecuredOperation(Roles = "Admin,Personnel")]
         public Material GetById(int id)
         {
             return _materialDal.Get(m => m.Id == id);
@@ -48,7 +50,7 @@ namespace HumanResourcesSystem.Business.Concrete
         {
             return _materialDal.GetList(m => m.OrganizationName.ToLower().Contains(text.ToLower()));
         }
-
+        [SecuredOperation(Roles = "Admin,Personnel")]
         public void Update(Material material)
         {
             _materialDal.Update(material);

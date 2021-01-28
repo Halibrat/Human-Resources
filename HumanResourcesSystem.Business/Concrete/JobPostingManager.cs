@@ -20,17 +20,17 @@ namespace HumanResourcesSystem.Business.Concrete
             _jobPostingDal = jobPostingDal;
         }
         [FluentValidationAspect(typeof(JobPostingValidator))]
+        [SecuredOperation(Roles ="Admin")]
         public void Add(JobPosting jobPosting)
         {
             _jobPostingDal.Add(jobPosting);
         }
-
+        [SecuredOperation(Roles ="Admin")]
         public void Delete(JobPosting jobPosting)
         {
             _jobPostingDal.Delete(jobPosting);
         }
         [SecuredOperation(Roles = "Visitor,Personnel,Admin")]
-
         public List<JobPosting> GetAll()
         {
             return _jobPostingDal.GetList();
@@ -55,7 +55,7 @@ namespace HumanResourcesSystem.Business.Concrete
         {
             return _jobPostingDal.GetList(jp => jp.Position.ToLower().Contains(text.ToLower()));
         }
-
+        [SecuredOperation(Roles ="Admin")]
         public void Update(JobPosting jobPosting)
         {
             _jobPostingDal.Update(jobPosting);

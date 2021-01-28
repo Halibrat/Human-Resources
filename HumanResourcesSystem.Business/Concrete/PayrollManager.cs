@@ -1,4 +1,5 @@
-﻿using DevFramework.Core.Aspects.Postsharp.ValidationAspects;
+﻿using DevFramework.Core.Aspects.Postsharp.AuthorizationAspects;
+using DevFramework.Core.Aspects.Postsharp.ValidationAspects;
 using HumanResourcesSystem.Business.Abstract;
 using HumanResourcesSystem.Business.ValidationRules.FluentValidation;
 using HumanResourcesSystem.DataAccess.Abstract;
@@ -19,26 +20,27 @@ namespace HumanResourcesSystem.Business.Concrete
             _payrollDal = payrollDal;
         }
         [FluentValidationAspect(typeof(PayrollValidator))]
+        [SecuredOperation(Roles ="Admin")]
         public void Add(Payroll payroll)
         {
             _payrollDal.Add(payroll);
         }
-
+        [SecuredOperation(Roles = "Admin")]
         public void Delete(Payroll payroll)
         {
             _payrollDal.Delete(payroll);
         }
-
+        [SecuredOperation(Roles = "Admin")]
         public List<Payroll> GetAll()
         {
             return _payrollDal.GetList();
         }
-
+        [SecuredOperation(Roles = "Admin")]
         public Payroll GetById(int id)
         {
             return _payrollDal.Get(p => p.Id == id);
         }
-
+        [SecuredOperation(Roles = "Admin")]
         public void Update(Payroll payroll)
         {
              _payrollDal.Update(payroll); ;

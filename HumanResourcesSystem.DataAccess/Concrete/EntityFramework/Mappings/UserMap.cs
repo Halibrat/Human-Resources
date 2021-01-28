@@ -13,7 +13,7 @@ namespace HumanResourcesSystem.DataAccess.Concrete.EntityFramework.Mappings
         public UserMap()
         {
             ToTable(@"Users", @"dbo");
-            HasKey(u => u.UserId);
+            HasKey(u => u.Id);
 
             Property(u => u.TckNo).HasColumnName("TckNo");
             Property(u => u.FirstName).HasColumnName("FirstName");

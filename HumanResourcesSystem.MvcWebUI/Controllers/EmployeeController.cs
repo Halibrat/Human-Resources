@@ -1,4 +1,5 @@
-﻿using HumanResourcesSystem.Business.Abstract;
+﻿using DevFramework.Core.Aspects.Postsharp.AuthorizationAspects;
+using HumanResourcesSystem.Business.Abstract;
 using HumanResourcesSystem.DataAccess.Abstract;
 using HumanResourcesSystem.DataAccess.Concrete.EntityFramework;
 using HumanResourcesSystem.Entities.Concrete;
@@ -20,7 +21,7 @@ namespace HumanResourcesSystem.MvcWebUI.Controllers
         public EmployeeController(IEmployeeService employeeService)
         {
             _employeeService = employeeService;
-     
+ 
         }
         // GET: Employees
         public ActionResult Index()
